@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head th:include="include :: header"></head>
+<style>
+	.text{
+		width: 100px;
+		display: block;
+		height: 30px;
+		float: left;
+		border:1px solid white;
+		padding-left: 15px;
+		padding-top: 5px;
+	}
+	.opacity{
+		opacity: 0;
+	}
+	.avatar-input{
+		display: inline-block;
+		float: left;
+		margin-left: -200px;
+		background-color: #1ab394;
+		border-color: #1ab394;
+		color: #FFFFFF;
+		padding: 6px 12px;
+		margin-bottom: 0;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.42857143;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-ms-touch-action: manipulation;
+		touch-action: manipulation;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		border-radius: 4px;
+	}
+</style>
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<div class="col-sm-12">
+							<h3>Add The Document</h3>
+						</div>
+						<form class="form-horizontal m-t" id="signupForm" enctype="multipart/form-data" method="post">
+							<input id="bvid" name="bvid" type="hidden">
+							<div class="form-group">
+								<label class="col-sm-1 control-label">title：</label>
+								<div class="col-sm-4">
+									<input id="title" name="title" class="form-control" type="text">
+								</div>
+								<label class="col-sm-1 control-label">author：</label>
+								<div class="col-sm-4">
+									<input id="author" name="author" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<input id="content" name="content" type="hidden">
+								<label class="col-sm-1 control-label">content：</label>
+								<div class="col-sm-11">
+									<div class="ibox-content no-padding">
+										<div id="content_sn" class="summernote"></div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-1 control-label">categories：</label>
+								<div class="col-sm-11">
+									<input id="categories" name="categories" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="from-group">
+								<label class="col-sm-1 control-label" for="avatarInput">select file:</label>
+								<input class="avatar-src" name="avatar_src" type="hidden">
+								<input class="avatar-data" name="avatar_data" type="hidden">
+								<div class="col-sm-11">
+									<input type="file" multiple="multiple" onchange="document.getElementById('file1').value=this.value" id="avatarInput" name="avatar_file" class="text opacity">
+									<input name="file_0" id="file1" value="" class="text" readonly>
+									<input type="button" value="upload file" class="avatar-input">
+								</div>
+
+								<!--<input class="avatar-input" id="avatarInput" name="avatar_file" type="file">-->
+							</div>
+
+							<div class="text-right form-group">
+								<a class="btn btn-default waves-effect waves-light"
+									onclick="returnList()">Returns list</a>
+								<button type="button"
+									class="btn btn-primary waves-effect waves-light" type="submit">save</button>
+								<button type="button"
+									class="btn btn-warning waves-effect waves-light"
+									onclick="save(0)">save as a draft</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/blog/lfyContent_cp/add.js"
+			th:src="@{/js/appjs/blog/lfyContent_cp/add.js}"></script>
+</body>
+</html>
